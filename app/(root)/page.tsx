@@ -13,7 +13,7 @@ export default async function Home({ searchParams: {  } }: SearchParamProps) {
 
   const accountsData = accounts?.data;
 
-  console.log(accounts, loggedIn)
+  // console.log(accounts, loggedIn)
 
   return (
     <section className="home">
