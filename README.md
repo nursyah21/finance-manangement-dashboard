@@ -5,6 +5,10 @@
 - source code: https://github.com/adrianhajdin/banking
 - tutorial: https://www.youtube.com/watch?v=PuOVqP_cjkE&t=3305s
 
+## plaid
+user_good
+pass_good
+
 ## tech stack
 
 - Next.js
