@@ -29,7 +29,9 @@ const Sidebar = ({ user }: SiderbarProps) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
 
           return (
-            <Link href={item.route} key={item.label} className={cn({ 'bg-bankGradient': isActive })}>
+            <Link href={item.route} key={item.label} className={cn(
+              'sidebar-link',
+              { 'bg-bankGradient': isActive })}>
               <div className="relative size-6">
                 <Image
                   src={item.imgURL}
@@ -46,7 +48,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
         })}
       </nav>
 
-        <Footer user={user} />
+      <Footer user={user} />
     </section>
   )
 }

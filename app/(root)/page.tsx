@@ -1,8 +1,19 @@
 import HeaderBox from "@/components/HeaderBox";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
+import { getAccounts } from "@/lib/actions/bank.actions";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 
-export default function Home() {
-  const loggedIn = { firstName: 'Adrian' }
+export default async function Home({ searchParams: {  } }: SearchParamProps) {
+  const loggedIn = await getLoggedInUser()
+  const accounts = await getAccounts({
+    userId: loggedIn.$id
+  })
+
+  if (!accounts) return;
+
+  const accountsData = accounts?.data;
+
+  console.log(accounts, loggedIn)
 
   return (
     <section className="home">
@@ -16,9 +27,9 @@ export default function Home() {
           />
 
           <TotalBalanceBox
-            accounts={[]}
-            totalBanks={1}
-            totalCurrentBalance={1250.35}
+            accounts={accountsData}
+            totalBanks={accounts?.totalBanks}
+            totalCurrentBalance={accounts?.totalCurrentBalance}
           />
         </header>
       </div>
